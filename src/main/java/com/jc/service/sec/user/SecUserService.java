@@ -23,10 +23,7 @@ public class SecUserService implements ISecUserService {
     @Override
     public boolean crateUser(SecUserModel SecUserModel) {
        int i = this.secUserDao.insert(SecUserModel);
-       if(i > 0){
-           return true;
-       }
-       return false;
+       return i > 0;
     }
 
     @Override
