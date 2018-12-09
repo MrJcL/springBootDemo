@@ -23,4 +23,10 @@ public interface ISecUserService {
      * @return
      */
     public List<SecUserModel> queryAllUser();
+
+    /**
+     * 根据用户ID获取用户信息
+     * @return
+     */
+    public SecUserModel getSecUserModel(String userId);
 }

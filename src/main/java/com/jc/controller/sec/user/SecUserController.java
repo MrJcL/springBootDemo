@@ -3,7 +3,6 @@ package com.jc.controller.sec.user;
 import com.jc.iservice.sec.user.ISecUserService;
 import com.jc.model.sec.user.SecUserModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,6 +39,16 @@ public class SecUserController {
     @GetMapping("/queryAllUser")
     public List<SecUserModel> queryAllUser() {
         return this.secUserService.queryAllUser();
+    }
+
+    /**
+     * 根据用户ID获取用户信息
+     *
+     * @return
+     */
+    @GetMapping("/getSecUserModel")
+    public SecUserModel getSecUserModel(String userId) {
+        return this.secUserService.getSecUserModel(userId);
     }
 
     @RequestMapping(value = {"/hello1"}, method = RequestMethod.GET)

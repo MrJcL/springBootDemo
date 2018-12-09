@@ -33,4 +33,13 @@ public class SecUserService implements ISecUserService {
     public List<SecUserModel> queryAllUser() {
         return this.secUserDao.selectSecUserModels();
     }
+
+    @Override
+    public SecUserModel getSecUserModel(String userId) {
+        SecUserModel secUserModel = this.secUserDao.getSecUserModel(userId);
+        System.out.println(secUserModel.toString());
+        return secUserModel;
+    }
+
+
 }

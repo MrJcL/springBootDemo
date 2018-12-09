@@ -8,6 +8,10 @@
     </insert>
 
     <select id="selectSecUserModels" resultType="com.jc.model.sec.user.SecUserModel">
-        select user_id,user_name,login_id,pass_word,mobile,org_id,create_time,create_user_id,create_user_name,update_time,update_user_id,update_user_name from sec_user
+        SELECT * FROM sec_user
+    </select>
+
+    <select id="getSecUserModel" parameterType="java.lang.String" resultType="com.jc.model.sec.user.SecUserModel">
+        SELECT * FROM sec_user WHERE user_id = #{userId}
     </select>
 </mapper>

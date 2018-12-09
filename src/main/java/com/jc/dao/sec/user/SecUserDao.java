@@ -19,4 +19,7 @@ public interface SecUserDao {
 
     //  查询所有用户
     List<SecUserModel> selectSecUserModels();
+
+    //  根据用户ID获取用户信息
+    SecUserModel getSecUserModel(String userId);
 }
