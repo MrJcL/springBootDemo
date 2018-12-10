@@ -1,11 +1,10 @@
 package com.jc.controller.sec.user;
 
+import com.github.pagehelper.PageInfo;
 import com.jc.iservice.sec.user.ISecUserService;
 import com.jc.model.sec.user.SecUserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @program: springBootDemo
@@ -37,8 +36,8 @@ public class SecUserController {
      * @return
      */
     @GetMapping("/queryAllUser")
-    public List<SecUserModel> queryAllUser() {
-        return this.secUserService.queryAllUser();
+    public PageInfo<SecUserModel> queryAllUser(int pageNum, int pageSize) {
+        return this.secUserService.queryAllUser(pageNum, pageSize);
     }
 
     /**

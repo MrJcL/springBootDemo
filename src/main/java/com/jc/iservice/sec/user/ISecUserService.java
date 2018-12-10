@@ -1,5 +1,6 @@
 package com.jc.iservice.sec.user;
 
+import com.github.pagehelper.PageInfo;
 import com.jc.model.sec.user.SecUserModel;
 
 import java.util.List;
@@ -20,9 +21,11 @@ public interface ISecUserService {
 
     /**
      * 查询所有用户
+     * pageNum 开始页数
+     * pageSize 每页显示的数据条数
      * @return
      */
-    public List<SecUserModel> queryAllUser();
+    public PageInfo<SecUserModel> queryAllUser(int pageNum, int pageSize);
 
     /**
      * 根据用户ID获取用户信息
