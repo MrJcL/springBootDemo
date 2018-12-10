@@ -25,7 +25,7 @@ public interface ISecUserService {
      * pageSize 每页显示的数据条数
      * @return
      */
-    public PageInfo<SecUserModel> queryAllUser(int pageNum, int pageSize);
+    public PageInfo<List<SecUserModel>> queryAllUser(int pageNum, int pageSize);
 
     /**
      * 根据用户ID获取用户信息

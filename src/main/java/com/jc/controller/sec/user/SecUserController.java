@@ -6,6 +6,8 @@ import com.jc.model.sec.user.SecUserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @program: springBootDemo
  * @Date: 2018/12/7 15:02
@@ -36,7 +38,7 @@ public class SecUserController {
      * @return
      */
     @GetMapping("/queryAllUser")
-    public PageInfo<SecUserModel> queryAllUser(int pageNum, int pageSize) {
+    public PageInfo<List<SecUserModel>> queryAllUser(int pageNum, int pageSize) {
         return this.secUserService.queryAllUser(pageNum, pageSize);
     }
 

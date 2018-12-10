@@ -29,17 +29,15 @@ public class SecUserService implements ISecUserService {
     }
 
     @Override
-    public PageInfo<SecUserModel> queryAllUser(int pageNum, int pageSize) {
+    public PageInfo<List<SecUserModel>> queryAllUser(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<SecUserModel> secUserModels =  this.secUserDao.selectSecUserModels();
-        PageInfo result = new PageInfo(secUserModels);
-        return result;
+        return new PageInfo(secUserModels);
     }
 
     @Override
     public SecUserModel getSecUserModel(String userId) {
-        SecUserModel secUserModel = this.secUserDao.getSecUserModel(userId);
-        return secUserModel;
+        return this.secUserDao.getSecUserModel(userId);
     }
 
 
