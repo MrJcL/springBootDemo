@@ -1,11 +1,12 @@
 package com.jc.controller.common;
 
 import com.jc.service.common.FileUploadService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller //等同于同时加上了@Controller和@ResponseBody
 @RequestMapping(value = "/upload")
-@Api(tags = "FileUploadController", description = "上传文件相关的api")
 public class FileUploadController {
 
     @Autowired
@@ -25,12 +25,12 @@ public class FileUploadController {
 
     @GetMapping("/index")
     public String uploadView(){
+        System.out.println("==================upload");
         return "upload";
     }
 
     @PostMapping("/execute")
     @ResponseBody
-    @ApiOperation(value="上传文件", notes="上传文件")
     public String execute(HttpServletRequest request){
         return this.fileUploadService.upload(request);
     }

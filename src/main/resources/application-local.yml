@@ -34,7 +34,7 @@ spring:
     filters: stat,wall
   mvc:
     view:
-      prefix: /WEB-INF/views/
+      prefix: /views/
       suffix: .html
 
 # 设置mybatis,该配置节点为独立的节点
