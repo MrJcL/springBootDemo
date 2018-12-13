@@ -32,10 +32,25 @@ spring:
     testOnReturn: false
     # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
     filters: stat,wall
-  mvc:
-    view:
-      prefix: /views/
-      suffix: .html
+
+  #注意：同时使用html和jsp需要配置视图解析器 ViewResolverConfiguration.java
+  # springMvc配置
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/views/
+#      suffix: .jsp
+#      order: 2
+#      view-name: jsp/*
+
+  # thymeleaf配置 不配置默认读取resource下的templates的html 需注释spring-mvc的配置
+#  thymeleaf:
+#    prefix: /WEB-INF/views/html/
+#    suffix: .html
+#    mode: HTML5
+#    encoding: UTF-8
+#    servlet:
+#      content-type: text/html
+#    cache: false #开发时关闭缓存,不然没法看到实时页面
 
 # 设置mybatis,该配置节点为独立的节点
 mybatis:

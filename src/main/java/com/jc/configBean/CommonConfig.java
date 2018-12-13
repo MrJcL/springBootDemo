@@ -1,5 +1,7 @@
 package com.jc.configBean;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
@@ -11,14 +13,15 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 @PropertySource(value = "classpath:config/common-${spring.profiles.active}.yml")
+@ConfigurationProperties(prefix="common")
 public class CommonConfig {
-    private String filePath;
-
-    public String getFilePath() {
-        return filePath;
+    @Value("${uploadPath}")
+    private String uploadPath;
+    public String getUploadPath() {
+        return uploadPath;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setUploadPath(String uploadPath) {
+        this.uploadPath = uploadPath;
     }
 }

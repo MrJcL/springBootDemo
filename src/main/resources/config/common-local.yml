@@ -1,2 +1,2 @@
-upload:
-  filePath: E:/idea_ws/upload/
+common:
+  uploadPath: E:/idea_ws/upload/

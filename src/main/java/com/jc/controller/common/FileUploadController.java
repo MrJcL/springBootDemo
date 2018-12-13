@@ -24,8 +24,7 @@ public class FileUploadController {
     private FileUploadService fileUploadService;
 
     @GetMapping("/index")
-    public String uploadView(){
-        System.out.println("==================upload");
+    public String index(){
         return "upload";
     }
 

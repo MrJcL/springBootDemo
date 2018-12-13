@@ -1,6 +1,7 @@
 package com.jc.service.common;
 
 import com.jc.configBean.CommonConfig;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,7 +23,6 @@ public class FileUploadService {
 
     @Autowired
     private CommonConfig commonConfig;
-
     /**
      * 上传文件
      * @param request
@@ -56,11 +56,23 @@ public class FileUploadService {
     public boolean uploadBase(MultipartFile file){
         //  文件名
         String fileName = file.getOriginalFilename();
+        //  判断上传路径是否为空
+        String uploadPath = commonConfig.getUploadPath();
+        if(Strings.isEmpty(uploadPath)){
+            System.out.println("===========uploadPath为空");
+            return false;
+        }
+        //  判断文件夹是否存在
+        File uploadPathFile = new File(uploadPath);
+        if(!uploadPathFile.exists() && !uploadPathFile.isDirectory()){
+            uploadPathFile.mkdirs();
+        }
         //  上传路径
-        String filePath = commonConfig.getFilePath() + fileName;
+        String filePath = uploadPath + fileName;
         System.out.println("=====================filePath:"+filePath);
         //  创建文件
         File dest = new File(filePath);
+        System.out.println("=====================getAbsolutePath:"+dest.getAbsolutePath());
         try {
             file.transferTo(dest);
         }catch (IOException e){
