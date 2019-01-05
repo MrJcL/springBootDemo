@@ -11,6 +11,10 @@
         SELECT * FROM sec_user
     </select>
 
+    <select id="selectUsersToMap" resultType="java.util.HashMap">
+        SELECT * FROM sec_user
+    </select>
+
     <select id="getSecUserModel" parameterType="java.lang.String" resultType="com.jc.model.sec.user.SecUserModel">
         SELECT * FROM sec_user WHERE user_id = #{userId}
     </select>

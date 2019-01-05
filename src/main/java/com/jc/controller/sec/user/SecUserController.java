@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: springBootDemo
@@ -59,6 +60,17 @@ public class SecUserController {
     @ApiOperation(value="查询所有用户", notes="分页查询：pageNum:开始页，pageSize:每页数")
     public PageInfo<List<SecUserModel>> queryAllUser(int pageNum, int pageSize) {
         return this.secUserService.queryAllUser(pageNum, pageSize);
+    }
+
+    /**
+     * 查询所有用户
+     *
+     * @return
+     */
+    @GetMapping("/queryAllUser1")
+    @ApiOperation(value="查询所有用户")
+    public List<Map<String, Object>> queryAllUser() {
+        return this.secUserService.queryAllUser();
     }
 
     /**
